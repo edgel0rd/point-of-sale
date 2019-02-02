@@ -16,5 +16,6 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
+
     }
 }
