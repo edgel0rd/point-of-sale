@@ -25,7 +25,7 @@ namespace PointOfSale
                 cmd = new MySqlCommand(query, conn);
                 cmd.ExecuteNonQuery();
             }
-            catch (MySqlException ex)
+            catch (MySqlException)
             {
                 Console.WriteLine("\n===================================\n" + query + "\n===================================\n");
             }

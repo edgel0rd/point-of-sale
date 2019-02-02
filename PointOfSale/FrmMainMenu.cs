@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace PointOfSale
 {
-    public partial class FrmLogin : Form
+    public partial class FrmMainMenu : Form
     {
-        public FrmLogin()
+        public FrmMainMenu()
         {
             InitializeComponent();
-        }
-
-        private void FrmLogin_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
