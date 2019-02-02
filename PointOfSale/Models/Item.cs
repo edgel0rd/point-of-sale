@@ -15,7 +15,7 @@ namespace PointOfSale.Models
         public double Price { get; set; }
 
 
-        public Item(int writeUid, string name, Category category, int stocks, double price, int id, DateTime createDate, int createUid, DateTime writeDate) : base(id, createDate, createUid, writeDate, writeUid)
+        public Item(string name, Category category, int stocks, double price, int id, DateTime createDate, int createUid, DateTime writeDate, int writeUid) : base(id, createDate, createUid, writeDate, writeUid)
         {
             Name = name;
             Category = category;

@@ -9,24 +9,21 @@ namespace PointOfSale.Models
 {
     public class Transaction : BaseModel
     {
-        public Customer Customer { get; set; }
-        public List<Item> Items { get; set; }
-        public double TotalPrice { get; set; }
+        public int CustomerId { get; set; }
+        public int EmployeeId { get; set; }
         public bool Voided { get; set; }
 
-        public Transaction(Customer customer, List<Item> items, double totalPrice, bool voided, int id, int createUid, DateTime createDate, int writeUid, DateTime writeDate) : base(id, createDate, createUid, writeDate, writeUid)
+        public Transaction(int customerId, int employeeId, bool voided, int id, int createUid, DateTime createDate, int writeUid, DateTime writeDate) : base(id, createDate, createUid, writeDate, writeUid)
         {
-            Customer = customer;
-            Items = items;
-            TotalPrice = totalPrice;
+            CustomerId = customerId;
+            EmployeeId = employeeId;
             Voided = voided;
         }
 
-        public Transaction(Customer customer, List<Item> items, double totalPrice, bool voided, int createUid, int writeUid) : base(createUid,writeUid)
+        public Transaction(int customerId, int employeeId, bool voided, int createUid, int writeUid) : base(createUid,writeUid)
         {
-            Customer = customer;
-            Items = items;
-            TotalPrice = totalPrice;
+            CustomerId = customerId;
+            EmployeeId = employeeId;
             Voided = voided;
         }
     }

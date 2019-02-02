@@ -12,22 +12,19 @@ namespace PointOfSale.Models
         public string Name { get; set; }
         public double Points { get; set; }
         public string PhoneNumber { get; set; }
-        public DateTime RegistrationDate { get; set; }
         
-        public Customer(string name, double points, string phoneNumber, DateTime registrationDate, int id, DateTime createDate, int createUid, DateTime writeDate, int writeUid) : base(id,createDate,createUid,writeDate,writeUid)
+        public Customer(string name, double points, string phoneNumber, int id, DateTime createDate, int createUid, DateTime writeDate, int writeUid) : base(id,createDate,createUid,writeDate,writeUid)
         {
             Name = name;
             Points = points;
             PhoneNumber = phoneNumber;
-            RegistrationDate = registrationDate;
         }
 
-        public Customer(string name, double points,string phoneNumber, DateTime registrationDate, int createUid, int writeUid) : base(createUid, writeUid)
+        public Customer(string name, double points,string phoneNumber, int createUid, int writeUid) : base(createUid, writeUid)
         {
             Name = name;
             Points = points;
             PhoneNumber = phoneNumber;
-            RegistrationDate = registrationDate;
         }
     }
 }

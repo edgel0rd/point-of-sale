@@ -7,14 +7,14 @@ using PointOfSale.BaseModels;
 
 namespace PointOfSale.Models
 {
-    public class User : BaseModel
+    public class Employee : BaseModel
     {
         public string Name { get; set; }
         public string Role { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
 
-        public User(string name, string role, string email, string password, int id, int createUid, DateTime createDate, int writeUid, DateTime writeDate) : base(id, createDate, createUid, writeDate, writeUid)
+        public Employee(string name, string role, string email, string password, int id, int createUid, DateTime createDate, int writeUid, DateTime writeDate) : base(id, createDate, createUid, writeDate, writeUid)
         {
             Name = name;
             Role = role;
@@ -22,7 +22,7 @@ namespace PointOfSale.Models
             Password = password;
         }
 
-        public User(string name, string role, string email, string password, int createUid, int writeUid) : base(createUid, writeUid)
+        public Employee(string name, string role, string email, string password, int createUid, int writeUid) : base(createUid, writeUid)
         {
             Name = name;
             Role = role;
