@@ -15,6 +15,7 @@ namespace PointOfSale
 {
     public partial class FrmLogin : Form
     {
+        AoEmployee ao_employee = AoEmployee.Instance;
         public FrmLogin()
         {
             InitializeComponent();
@@ -22,12 +23,39 @@ namespace PointOfSale
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            Server server = Server.Instance;
+            string email = txtEmail.Text.Trim();
+            string password = txtPassword.Text;
+            Employee emp = ao_employee.Select("email", email);
+            string error_message = string.Empty;
+
+            if (email.Equals(string.Empty))
+            {
+                error_message = "Email is required";
+            }
+            else if (password.Equals(string.Empty))
+            {
+                error_message = "Password is Empty";
+            }
+            else if(emp == null || emp.Password != password)
+            {
+                error_message = "Incorrect email or password";
+            }
+
+            if (error_message.Equals(string.Empty))
+            {
+                Hide();
+                new FrmCashier(emp,this).Show();
+                txtPassword.Text = string.Empty;
+            }
+            else
+            {
+                MessageBox.Show(error_message);
+            }
         }
     }
 }

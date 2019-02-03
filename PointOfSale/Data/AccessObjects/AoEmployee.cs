@@ -26,16 +26,17 @@ namespace PointOfSale.Data.AccessObjects
 
         public static AoEmployee Instance { get => instance.Value; }
 
-        public Employee Select(int id)
+        public Employee Select(string identifier, string value)
         {
             Employee result = null;
             try
             {
                 conn.Open();
-                query = builder.SelectQuery(table, "id");
+                query = builder.SelectQuery(table, identifier);
                 cmd = new MySqlCommand(query, conn);
-                builder.PrepareCommand(cmd, "id", id.ToString());
+                builder.PrepareCommand(cmd, identifier, value);
                 rdr = cmd.ExecuteReader();
+                Console.WriteLine(cmd.CommandText);
                 while (rdr.Read())
                 {
                     result = new Employee(

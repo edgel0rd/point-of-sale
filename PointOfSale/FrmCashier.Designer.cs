@@ -1,6 +1,6 @@
 ﻿namespace PointOfSale
 {
-    partial class FrmMainMenu
+    partial class FrmCashier
     {
         /// <summary>
         /// Required designer variable.
@@ -19,29 +19,23 @@
             }
             base.Dispose(disposing);
         }
-
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMainMenu));
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCashier));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblClock = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.eCircularPicture1 = new edgycontrols.ECircularPicture();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lnkHelp = new System.Windows.Forms.LinkLabel();
+            this.lblEmployeeName = new System.Windows.Forms.Label();
+            this.lblEmployeeRole = new System.Windows.Forms.Label();
+            this.lnkLogout = new System.Windows.Forms.LinkLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnlItems = new System.Windows.Forms.Panel();
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
@@ -65,8 +59,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnVoid = new System.Windows.Forms.Button();
+            this.btnPay = new System.Windows.Forms.Button();
+            this.tmrClock = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -94,7 +89,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.lblClock);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.flowLayoutPanel1);
@@ -129,17 +124,17 @@
             this.label11.TabIndex = 209;
             this.label11.Text = "Transaction # 000000000";
             // 
-            // label9
+            // lblClock
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(22, 51);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(168, 17);
-            this.label9.TabIndex = 209;
-            this.label9.Text = "mm dd, YYYY; hh:mm AM";
+            this.lblClock.AutoSize = true;
+            this.lblClock.BackColor = System.Drawing.Color.Transparent;
+            this.lblClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblClock.ForeColor = System.Drawing.Color.White;
+            this.lblClock.Location = new System.Drawing.Point(22, 51);
+            this.lblClock.Name = "lblClock";
+            this.lblClock.Size = new System.Drawing.Size(168, 17);
+            this.lblClock.TabIndex = 209;
+            this.lblClock.Text = "mm dd, YYYY; hh:mm AM";
             // 
             // label1
             // 
@@ -170,7 +165,7 @@
             this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel1.Controls.Add(this.eCircularPicture1);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
-            this.flowLayoutPanel1.Controls.Add(this.lnkHelp);
+            this.flowLayoutPanel1.Controls.Add(this.lnkLogout);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(657, 15);
@@ -196,52 +191,53 @@
             // 
             this.flowLayoutPanel2.AutoSize = true;
             this.flowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel2.Controls.Add(this.label7);
-            this.flowLayoutPanel2.Controls.Add(this.label8);
+            this.flowLayoutPanel2.Controls.Add(this.lblEmployeeName);
+            this.flowLayoutPanel2.Controls.Add(this.lblEmployeeRole);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(59, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(65, 37);
             this.flowLayoutPanel2.TabIndex = 207;
             // 
-            // label7
+            // lblEmployeeName
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(3, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 20);
-            this.label7.TabIndex = 210;
-            this.label7.Text = "NAME";
+            this.lblEmployeeName.AutoSize = true;
+            this.lblEmployeeName.BackColor = System.Drawing.Color.Transparent;
+            this.lblEmployeeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmployeeName.ForeColor = System.Drawing.Color.White;
+            this.lblEmployeeName.Location = new System.Drawing.Point(3, 0);
+            this.lblEmployeeName.Name = "lblEmployeeName";
+            this.lblEmployeeName.Size = new System.Drawing.Size(59, 20);
+            this.lblEmployeeName.TabIndex = 210;
+            this.lblEmployeeName.Text = "NAME";
             // 
-            // label8
+            // lblEmployeeRole
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(3, 20);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 17);
-            this.label8.TabIndex = 209;
-            this.label8.Text = "ROLE";
+            this.lblEmployeeRole.AutoSize = true;
+            this.lblEmployeeRole.BackColor = System.Drawing.Color.Transparent;
+            this.lblEmployeeRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblEmployeeRole.ForeColor = System.Drawing.Color.White;
+            this.lblEmployeeRole.Location = new System.Drawing.Point(3, 20);
+            this.lblEmployeeRole.Name = "lblEmployeeRole";
+            this.lblEmployeeRole.Size = new System.Drawing.Size(46, 17);
+            this.lblEmployeeRole.TabIndex = 209;
+            this.lblEmployeeRole.Text = "ROLE";
             // 
-            // lnkHelp
+            // lnkLogout
             // 
-            this.lnkHelp.AutoSize = true;
-            this.lnkHelp.BackColor = System.Drawing.Color.Transparent;
-            this.lnkHelp.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lnkHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkHelp.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
-            this.lnkHelp.Location = new System.Drawing.Point(130, 0);
-            this.lnkHelp.Name = "lnkHelp";
-            this.lnkHelp.Padding = new System.Windows.Forms.Padding(20, 10, 0, 20);
-            this.lnkHelp.Size = new System.Drawing.Size(80, 48);
-            this.lnkHelp.TabIndex = 208;
-            this.lnkHelp.TabStop = true;
-            this.lnkHelp.Text = "Logout";
+            this.lnkLogout.AutoSize = true;
+            this.lnkLogout.BackColor = System.Drawing.Color.Transparent;
+            this.lnkLogout.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lnkLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkLogout.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
+            this.lnkLogout.Location = new System.Drawing.Point(130, 0);
+            this.lnkLogout.Name = "lnkLogout";
+            this.lnkLogout.Padding = new System.Windows.Forms.Padding(20, 10, 0, 20);
+            this.lnkLogout.Size = new System.Drawing.Size(80, 48);
+            this.lnkLogout.TabIndex = 208;
+            this.lnkLogout.TabStop = true;
+            this.lnkLogout.Text = "Logout";
+            this.lnkLogout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LnkLogout_LinkClicked);
             // 
             // panel2
             // 
@@ -300,6 +296,7 @@
             this.btnTemplate.Name = "btnTemplate";
             this.btnTemplate.Size = new System.Drawing.Size(94, 47);
             this.btnTemplate.TabIndex = 207;
+            this.btnTemplate.TabStop = false;
             this.btnTemplate.Text = "test";
             this.btnTemplate.UseVisualStyleBackColor = false;
             // 
@@ -400,6 +397,7 @@
             this.DgvReceipt.ShowEditingIcon = false;
             this.DgvReceipt.Size = new System.Drawing.Size(340, 273);
             this.DgvReceipt.TabIndex = 41;
+            this.DgvReceipt.TabStop = false;
             // 
             // flowLayoutPanel4
             // 
@@ -500,6 +498,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(30, 30);
             this.button4.TabIndex = 5;
+            this.button4.TabStop = false;
             this.button4.UseVisualStyleBackColor = false;
             // 
             // label3
@@ -538,8 +537,8 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Transparent;
-            this.panel5.Controls.Add(this.button3);
-            this.panel5.Controls.Add(this.button1);
+            this.panel5.Controls.Add(this.btnVoid);
+            this.panel5.Controls.Add(this.btnPay);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 431);
             this.panel5.Name = "panel5";
@@ -547,47 +546,55 @@
             this.panel5.Size = new System.Drawing.Size(356, 100);
             this.panel5.TabIndex = 0;
             // 
-            // button3
+            // btnVoid
             // 
-            this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button3.BackColor = System.Drawing.Color.Tomato;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = global::PointOfSale.Properties.Resources.ic_cancel_white_24dp;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.Location = new System.Drawing.Point(246, 8);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
-            this.button3.Size = new System.Drawing.Size(102, 84);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "VOID";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnVoid.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnVoid.BackColor = System.Drawing.Color.Tomato;
+            this.btnVoid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnVoid.FlatAppearance.BorderSize = 0;
+            this.btnVoid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVoid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoid.ForeColor = System.Drawing.Color.White;
+            this.btnVoid.Image = global::PointOfSale.Properties.Resources.ic_cancel_white_24dp;
+            this.btnVoid.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnVoid.Location = new System.Drawing.Point(246, 8);
+            this.btnVoid.Name = "btnVoid";
+            this.btnVoid.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
+            this.btnVoid.Size = new System.Drawing.Size(102, 84);
+            this.btnVoid.TabIndex = 15;
+            this.btnVoid.TabStop = false;
+            this.btnVoid.Text = "VOID";
+            this.btnVoid.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnVoid.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnPay
             // 
-            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = global::PointOfSale.Properties.Resources.ic_cash_multiple_white_24dp;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(8, 8);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
-            this.button1.Size = new System.Drawing.Size(238, 84);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "PAY";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnPay.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnPay.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnPay.FlatAppearance.BorderSize = 0;
+            this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPay.ForeColor = System.Drawing.Color.White;
+            this.btnPay.Image = global::PointOfSale.Properties.Resources.ic_cash_multiple_white_24dp;
+            this.btnPay.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnPay.Location = new System.Drawing.Point(8, 8);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
+            this.btnPay.Size = new System.Drawing.Size(238, 84);
+            this.btnPay.TabIndex = 13;
+            this.btnPay.TabStop = false;
+            this.btnPay.Text = "PAY";
+            this.btnPay.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPay.UseVisualStyleBackColor = false;
             // 
-            // FrmMainMenu
+            // tmrClock
+            // 
+            this.tmrClock.Enabled = true;
+            this.tmrClock.Interval = 1000;
+            this.tmrClock.Tick += new System.EventHandler(this.TmrClock_Tick);
+            // 
+            // FrmCashier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -598,10 +605,11 @@
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmMainMenu";
+            this.Name = "FrmCashier";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmCashier_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -634,15 +642,14 @@
             this.ResumeLayout(false);
 
         }
-
-        #endregion
+        
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private edgycontrols.ECircularPicture eCircularPicture1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.LinkLabel lnkHelp;
+        private System.Windows.Forms.Label lblEmployeeName;
+        private System.Windows.Forms.Label lblEmployeeRole;
+        private System.Windows.Forms.LinkLabel lnkLogout;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
@@ -657,9 +664,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnPay;
+        private System.Windows.Forms.Button btnVoid;
+        private System.Windows.Forms.Label lblClock;
         private System.Windows.Forms.Panel panel6;
         internal System.Windows.Forms.DataGridView DgvReceipt;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -673,5 +680,6 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Timer tmrClock;
     }
 }

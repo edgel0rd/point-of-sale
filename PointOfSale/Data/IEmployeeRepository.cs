@@ -9,7 +9,7 @@ namespace PointOfSale.Data
 {
     public interface IEmployeeRepository
     {
-        Employee Select(int id);
+        Employee Select(string identifier, string value);
         List<Employee> SelectAll();
         int Insert(Employee employee);
         int Update(Employee employee);
