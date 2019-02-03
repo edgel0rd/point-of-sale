@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PointOfSale.Models;
+using PointOfSale.BaseModels;
+using PointOfSale.Data.AccessObjects;
 
 namespace PointOfSale
 {
@@ -20,6 +23,11 @@ namespace PointOfSale
         private void FrmLogin_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnLogin_Click(object sender, EventArgs e)
+        {
+            Server server = Server.Instance;
         }
     }
 }

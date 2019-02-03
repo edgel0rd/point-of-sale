@@ -11,20 +11,26 @@ namespace PointOfSale.Models
     {
         public int CustomerId { get; set; }
         public int EmployeeId { get; set; }
-        public bool Voided { get; set; }
+        public Status Condition { get; set; }
 
-        public Transaction(int customerId, int employeeId, bool voided, int id, int createUid, DateTime createDate, int writeUid, DateTime writeDate) : base(id, createDate, createUid, writeDate, writeUid)
+        public enum Status
         {
-            CustomerId = customerId;
-            EmployeeId = employeeId;
-            Voided = voided;
+            Voided,
+            Valid
         }
 
-        public Transaction(int customerId, int employeeId, bool voided, int createUid, int writeUid) : base(createUid,writeUid)
+        public Transaction(int id, int customerId, int employeeId, Status condition,int createUid, DateTime createDate, int writeUid, DateTime writeDate) : base(id, createDate, createUid, writeDate, writeUid)
         {
             CustomerId = customerId;
             EmployeeId = employeeId;
-            Voided = voided;
+            Condition = condition;
+        }
+
+        public Transaction(int customerId, int employeeId, Status condition, int createUid, int writeUid) : base(createUid,writeUid)
+        {
+            CustomerId = customerId;
+            EmployeeId = employeeId;
+            Condition = condition;
         }
     }
 }

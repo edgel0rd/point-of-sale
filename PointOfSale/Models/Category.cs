@@ -12,7 +12,7 @@ namespace PointOfSale.Models
         public string Name { get; set; }
         public string Description { get; set; }
 
-        public Category(string name, string description, int id, int createUid, DateTime createDate, int writeUid, DateTime writeDate) : base(id, createDate, createUid, writeDate, writeUid)
+        public Category(int id, string name, string description, int createUid, DateTime createDate, int writeUid, DateTime writeDate) : base(id, createDate, createUid, writeDate, writeUid)
         {
             Name = name;
             Description = description;

@@ -6,41 +6,24 @@ using System.Threading.Tasks;
 
 namespace PointOfSale.BaseModels
 {
-    public class Server
+    public sealed class Server
     {
-        private String _ipAddress;
-
-        public String Ip
-        {
-            get => _ipAddress;
-            set
-            {
-                if (value != null)
-                {
-                    _ipAddress = value;
-                    Properties.Settings.Default.DB_HOST = value;
-                }
-            }
-        }
-       
+        public String Ip { get; }       
         public String User { get; }
         public String Password { get; }
         public String Database { get; }
-        public Server()
+        private Server()
         {
-            Ip = "localhost";
+            Ip = Properties.Settings.Default.DB_HOST;
             User = Properties.Settings.Default.DB_USER;
             Password = Properties.Settings.Default.DB_PASS;
             Database = Properties.Settings.Default.DB_NAME;
         }
-        public Server(String ip)
+        public static readonly Lazy<Server> server = new Lazy<Server>(() => new Server());
+        public static Server Instance
         {
-            Ip = ip;
-            User = Properties.Settings.Default.DB_USER;
-            Password = Properties.Settings.Default.DB_PASS;
-            Database = Properties.Settings.Default.DB_NAME;
+            get => server.Value;
         }
-
         public String GetConnectionString()
         {
             return (

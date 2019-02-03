@@ -42,6 +42,7 @@
       <HintPath>..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.10.8\Assemblies\v4.5.2\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -56,7 +57,19 @@
   <ItemGroup>
     <Compile Include="BaseModels\BaseModel.cs" />
     <Compile Include="BaseModels\Server.cs" />
+    <Compile Include="Builder.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="Data\AccessObjects\AoCategory.cs" />
+    <Compile Include="Data\AccessObjects\AoCustomer.cs" />
+    <Compile Include="Data\AccessObjects\AoEmployee.cs" />
+    <Compile Include="Data\AccessObjects\AoItem.cs" />
+    <Compile Include="Data\AccessObjects\AoTransaction.cs" />
+    <Compile Include="Data\DataManager.cs" />
+    <Compile Include="Data\ICategoryRepository.cs" />
+    <Compile Include="Data\ICustomerRepository.cs" />
+    <Compile Include="Data\IEmployeeRepository.cs" />
+    <Compile Include="Data\IItemRepository.cs" />
+    <Compile Include="Data\ITransactionRepository.cs" />
     <Compile Include="Environment.cs" />
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
@@ -76,6 +89,7 @@
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\TransactionLines.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmLogin.resx">

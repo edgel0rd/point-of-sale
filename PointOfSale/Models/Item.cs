@@ -10,23 +10,23 @@ namespace PointOfSale.Models
     public class Item : BaseModel
     {
         public string Name { get; set; }
-        public Category Category { get; set; }
+        public int CategoryId { get; set; }
         public int Stocks { get; set; }
         public double Price { get; set; }
 
 
-        public Item(string name, Category category, int stocks, double price, int id, DateTime createDate, int createUid, DateTime writeDate, int writeUid) : base(id, createDate, createUid, writeDate, writeUid)
+        public Item(int id, string name, int categoryId, int stocks, double price, int createUid, DateTime createDate, int writeUid, DateTime writeDate) : base(id, createDate, createUid, writeDate, writeUid)
         {
             Name = name;
-            Category = category;
+            CategoryId = categoryId;
             Stocks = stocks;
             Price = price;
         }
 
-        public Item(string name, Category category, int stocks, double price, int createUid, int writeUid) : base(createUid, writeUid)
+        public Item(string name, int category, int stocks, double price, int createUid, int writeUid) : base(createUid, writeUid)
         {
             Name = name;
-            Category = category;
+            CategoryId = category;
             Stocks = stocks;
             Price = price;
         }
