@@ -62,11 +62,13 @@ namespace PointOfSale
             cmd.Prepare();
             foreach(string col in columns)
             {
-                cmd.Parameters.AddWithValue($"@{col}", values[columns.IndexOf(col)].ToString());
+                object c_obj = values[columns.IndexOf(col)];
+                //cmd.Parameters.AddWithValue($"@{col}", c_obj.ToString());
+                cmd.Parameters.Add($"{col}", GetObjectType(c_obj)).Value = c_obj;
             }
             if (col_id != null)
             {
-                cmd.Parameters.AddWithValue("@id", col_id.ToString());
+                cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = col_id;
             }
         }
 
@@ -74,6 +76,34 @@ namespace PointOfSale
         {
             cmd.Prepare();
             cmd.Parameters.AddWithValue($"@{col}", value);
+        }
+
+        private MySqlDbType GetObjectType(object obj)
+        {
+            MySqlDbType result;
+            var type = obj.GetType();
+            if (type is int)
+            {
+                result = MySqlDbType.Int32;
+            }
+            else if (type is double)
+            {
+                result = MySqlDbType.Double;
+            }
+            else if (type is string)
+            {
+                result = MySqlDbType.VarString;
+            }
+            else if (type is DateTime)
+            {
+                result = MySqlDbType.DateTime;
+            }
+            else
+            {
+                Console.WriteLine("TYPE: " + type.ToString());
+                throw new NullReferenceException(); 
+            }
+            return result;
         }
 
     }

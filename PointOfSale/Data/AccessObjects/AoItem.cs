@@ -25,15 +25,15 @@ namespace PointOfSale.Data.AccessObjects
         private static readonly Lazy<AoItem> instance = new Lazy<AoItem>(() => new AoItem());
         public static AoItem Instance { get => instance.Value; }
 
-        public Item Select(int id)
+        public Item Select(string identifier, string value)
         {
             Item result = null;
             try
             {
                 conn.Open();
-                query = builder.SelectQuery(table, "id");
+                query = builder.SelectQuery(table, identifier);
                 cmd = new MySqlCommand(query, conn);
-                builder.PrepareCommand(cmd, "id", id.ToString());
+                builder.PrepareCommand(cmd, identifier, value);
                 rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
@@ -144,15 +144,15 @@ namespace PointOfSale.Data.AccessObjects
             return result;
         }
 
-        public int Delete(int id)
+        public int Delete(string identifier, string value)
         {
             int result = 0;
             try
             {
                 conn.Open();
-                query = builder.DeleteQuery(table, "id");
+                query = builder.DeleteQuery(table, identifier);
                 cmd = new MySqlCommand(query, conn);
-                builder.PrepareCommand(cmd, "id", id.ToString());
+                builder.PrepareCommand(cmd, identifier, value);
                 result = cmd.ExecuteNonQuery();
             }
             catch (MySqlException ex)

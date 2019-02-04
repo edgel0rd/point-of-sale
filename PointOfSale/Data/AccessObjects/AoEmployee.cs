@@ -149,15 +149,15 @@ namespace PointOfSale.Data.AccessObjects
             return result;
         }
 
-        public int Delete(int id)
+        public int Delete(string identifier, string value)
         {
             int result = 0;
             try
             {
                 conn.Open();
-                query = builder.DeleteQuery(table, "id");
+                query = builder.DeleteQuery(table, identifier);
                 cmd = new MySqlCommand(query, conn);
-                builder.PrepareCommand(cmd, "id", id.ToString());
+                builder.PrepareCommand(cmd, identifier, value);
                 result = cmd.ExecuteNonQuery();
             }
             catch (MySqlException ex)
