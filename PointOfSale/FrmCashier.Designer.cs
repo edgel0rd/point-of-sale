@@ -26,7 +26,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblTransactionCounter = new System.Windows.Forms.Label();
             this.lblClock = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -38,12 +38,9 @@
             this.lnkLogout = new System.Windows.Forms.LinkLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnlItems = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpItems = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpCategories = new System.Windows.Forms.FlowLayoutPanel();
             this.btnTemplate = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pnlReceipt = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.DgvReceipt = new System.Windows.Forms.DataGridView();
@@ -62,6 +59,9 @@
             this.btnVoid = new System.Windows.Forms.Button();
             this.btnPay = new System.Windows.Forms.Button();
             this.tmrClock = new System.Windows.Forms.Timer(this.components);
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -70,9 +70,7 @@
             this.flowLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlItems.SuspendLayout();
-            this.flowLayoutPanel6.SuspendLayout();
-            this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.flpCategories.SuspendLayout();
             this.pnlReceipt.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvReceipt)).BeginInit();
@@ -82,13 +80,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.flowLayoutPanel5.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.lblTransactionCounter);
             this.panel1.Controls.Add(this.lblClock);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -112,17 +112,17 @@
             this.pictureBox2.TabIndex = 208;
             this.pictureBox2.TabStop = false;
             // 
-            // label11
+            // lblTransactionCounter
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(265, 51);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(171, 17);
-            this.label11.TabIndex = 209;
-            this.label11.Text = "Transaction # 000000000";
+            this.lblTransactionCounter.AutoSize = true;
+            this.lblTransactionCounter.BackColor = System.Drawing.Color.Transparent;
+            this.lblTransactionCounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblTransactionCounter.ForeColor = System.Drawing.Color.White;
+            this.lblTransactionCounter.Location = new System.Drawing.Point(265, 51);
+            this.lblTransactionCounter.Name = "lblTransactionCounter";
+            this.lblTransactionCounter.Size = new System.Drawing.Size(171, 17);
+            this.lblTransactionCounter.TabIndex = 209;
+            this.lblTransactionCounter.Text = "Transaction # 000000000";
             // 
             // lblClock
             // 
@@ -248,42 +248,46 @@
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel2.Location = new System.Drawing.Point(0, 86);
             this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(25, 10, 25, 10);
+            this.panel2.Padding = new System.Windows.Forms.Padding(0, 10, 25, 10);
             this.panel2.Size = new System.Drawing.Size(895, 551);
             this.panel2.TabIndex = 206;
             // 
             // pnlItems
             // 
-            this.pnlItems.BackColor = System.Drawing.Color.Transparent;
-            this.pnlItems.Controls.Add(this.flowLayoutPanel7);
-            this.pnlItems.Controls.Add(this.flowLayoutPanel6);
+            this.pnlItems.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlItems.Controls.Add(this.flpItems);
+            this.pnlItems.Controls.Add(this.flpCategories);
             this.pnlItems.Controls.Add(this.panel7);
             this.pnlItems.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlItems.Location = new System.Drawing.Point(25, 10);
+            this.pnlItems.Location = new System.Drawing.Point(0, 10);
             this.pnlItems.Name = "pnlItems";
-            this.pnlItems.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
-            this.pnlItems.Size = new System.Drawing.Size(489, 531);
+            this.pnlItems.Padding = new System.Windows.Forms.Padding(25, 8, 0, 0);
+            this.pnlItems.Size = new System.Drawing.Size(514, 531);
             this.pnlItems.TabIndex = 0;
             // 
-            // flowLayoutPanel7
+            // flpItems
             // 
-            this.flowLayoutPanel7.AutoScroll = true;
-            this.flowLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel7.Location = new System.Drawing.Point(0, 122);
-            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(489, 409);
-            this.flowLayoutPanel7.TabIndex = 204;
+            this.flpItems.AutoScroll = true;
+            this.flpItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpItems.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpItems.Location = new System.Drawing.Point(129, 33);
+            this.flpItems.Name = "flpItems";
+            this.flpItems.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.flpItems.Size = new System.Drawing.Size(385, 498);
+            this.flpItems.TabIndex = 204;
             // 
-            // flowLayoutPanel6
+            // flpCategories
             // 
-            this.flowLayoutPanel6.AutoScroll = true;
-            this.flowLayoutPanel6.Controls.Add(this.btnTemplate);
-            this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(0, 33);
-            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(489, 89);
-            this.flowLayoutPanel6.TabIndex = 203;
-            this.flowLayoutPanel6.WrapContents = false;
+            this.flpCategories.AutoScroll = true;
+            this.flpCategories.Controls.Add(this.btnTemplate);
+            this.flpCategories.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flpCategories.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpCategories.Location = new System.Drawing.Point(25, 33);
+            this.flpCategories.Name = "flpCategories";
+            this.flpCategories.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.flpCategories.Size = new System.Drawing.Size(104, 498);
+            this.flpCategories.TabIndex = 203;
+            this.flpCategories.WrapContents = false;
             // 
             // btnTemplate
             // 
@@ -292,48 +296,13 @@
             this.btnTemplate.FlatAppearance.BorderSize = 0;
             this.btnTemplate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTemplate.ForeColor = System.Drawing.Color.White;
-            this.btnTemplate.Location = new System.Drawing.Point(3, 3);
+            this.btnTemplate.Location = new System.Drawing.Point(3, 7);
             this.btnTemplate.Name = "btnTemplate";
             this.btnTemplate.Size = new System.Drawing.Size(94, 47);
             this.btnTemplate.TabIndex = 207;
             this.btnTemplate.TabStop = false;
             this.btnTemplate.Text = "test";
             this.btnTemplate.UseVisualStyleBackColor = false;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.label10);
-            this.panel7.Controls.Add(this.pictureBox3);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 8);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(489, 25);
-            this.panel7.TabIndex = 0;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label10.Location = new System.Drawing.Point(24, 0);
-            this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(4);
-            this.label10.Size = new System.Drawing.Size(77, 25);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Category:";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.BackgroundImage = global::PointOfSale.Properties.Resources.ic_category_black_24dp;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(24, 25);
-            this.pictureBox3.TabIndex = 210;
-            this.pictureBox3.TabStop = false;
             // 
             // pnlReceipt
             // 
@@ -594,6 +563,41 @@
             this.tmrClock.Interval = 1000;
             this.tmrClock.Tick += new System.EventHandler(this.TmrClock_Tick);
             // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.label10);
+            this.panel7.Controls.Add(this.pictureBox3);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(25, 8);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(489, 25);
+            this.panel7.TabIndex = 210;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label10.Location = new System.Drawing.Point(24, 0);
+            this.label10.Name = "label10";
+            this.label10.Padding = new System.Windows.Forms.Padding(4);
+            this.label10.Size = new System.Drawing.Size(77, 25);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Category:";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.BackgroundImage = global::PointOfSale.Properties.Resources.ic_category_black_24dp;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(24, 25);
+            this.pictureBox3.TabIndex = 210;
+            this.pictureBox3.TabStop = false;
+            // 
             // FrmCashier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -621,10 +625,7 @@
             this.flowLayoutPanel2.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.pnlItems.ResumeLayout(false);
-            this.flowLayoutPanel6.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.flpCategories.ResumeLayout(false);
             this.pnlReceipt.ResumeLayout(false);
             this.pnlReceipt.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -639,6 +640,9 @@
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel5.PerformLayout();
             this.panel5.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -670,16 +674,16 @@
         private System.Windows.Forms.Panel panel6;
         internal System.Windows.Forms.DataGridView DgvReceipt;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
+        private System.Windows.Forms.Label lblTransactionCounter;
+        private System.Windows.Forms.FlowLayoutPanel flpCategories;
         private System.Windows.Forms.Button btnTemplate;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.FlowLayoutPanel flpItems;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Timer tmrClock;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

@@ -97,7 +97,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(156, 20);
-            this.txtPassword.TabIndex = 200;
+            this.txtPassword.TabIndex = 101;
             // 
             // label2
             // 
@@ -133,7 +133,7 @@
             this.btnLogin.Location = new System.Drawing.Point(25, 438);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(158, 27);
-            this.btnLogin.TabIndex = 201;
+            this.btnLogin.TabIndex = 102;
             this.btnLogin.Text = "Log in";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
@@ -157,6 +157,7 @@
             this.textBox3.Location = new System.Drawing.Point(25, 547);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(360, 30);
             this.textBox3.TabIndex = 200;
             this.textBox3.Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor in" +
@@ -209,7 +210,7 @@
             this.lnkForgotPassword.Location = new System.Drawing.Point(22, 478);
             this.lnkForgotPassword.Name = "lnkForgotPassword";
             this.lnkForgotPassword.Size = new System.Drawing.Size(92, 13);
-            this.lnkForgotPassword.TabIndex = 205;
+            this.lnkForgotPassword.TabIndex = 103;
             this.lnkForgotPassword.TabStop = true;
             this.lnkForgotPassword.Text = "Forgot Password?";
             // 
@@ -221,7 +222,7 @@
             this.lnkHelp.Location = new System.Drawing.Point(603, 564);
             this.lnkHelp.Name = "lnkHelp";
             this.lnkHelp.Size = new System.Drawing.Size(62, 13);
-            this.lnkHelp.TabIndex = 205;
+            this.lnkHelp.TabIndex = 104;
             this.lnkHelp.TabStop = true;
             this.lnkHelp.Text = "Need help?";
             // 
@@ -258,6 +259,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

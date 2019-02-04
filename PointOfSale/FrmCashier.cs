@@ -19,6 +19,8 @@ namespace PointOfSale
         private FrmLogin FrmLogin;
         private List<Category> Categories;
         private Category ActiveCategory;
+        private List<Button> CategoryButtons;
+        private Transaction ActiveTransaction;
         public FrmCashier(Employee employee, FrmLogin form)
         {
             InitializeComponent();
@@ -29,15 +31,28 @@ namespace PointOfSale
         private void FrmCashier_Load(object sender, EventArgs e)
         {
             lblEmployeeName.Text = Employee.Name;
-            lblEmployeeRole.Text = Employee.Role;
+            lblEmployeeRole.Text = Employee.Role.ToString();
             Categories = AoCategory.Instance.SelectAll("1","1");
             if (Categories.Count > 0)
             {
+                CategoryButtons.Clear();
                 foreach(Category cat in Categories)
                 {
                     //Populate Category Flow layout panel with categories in database.
+                    using (Button btn = new Button())
+                    {
+                        btn.Name = cat.Id.ToString();
+                        btn.Text = cat.Name;
+                        btn.FlatStyle = FlatStyle.Flat;
+                        btn.BackColor = Color.FromArgb(99, 163, 255);
+                        btn.ForeColor = Color.White;
+                        btn.FlatAppearance.BorderColor = Color.Transparent;
+                        btn.FlatAppearance.BorderSize = 0;
+                        btn.Click += btnCategoryGenerated_Click;
+                        CategoryButtons.Add(btn);
+                    }
                 }
-                SetActiveCategory(Categories[0]);
+                CategoryButtons[0].PerformClick();
             }
         }        
 
@@ -51,12 +66,14 @@ namespace PointOfSale
             FrmLogin.Show();
             Close();
         }
+        
 
-        private void SetActiveCategory(Category category)
+        private void btnCategoryGenerated_Click(object sender, EventArgs e)
         {
-            List<Item> items = AoItem.Instance.SelectAll("category", category.Name);
+            
+            List<Item> items = AoItem.Instance.SelectAll("category", ((Button)sender).Text);
             if (items.Count > 0)
-            { 
+            {
                 foreach (Item itm in items)
                 {
                     //Populate Item Flow layout panel with Items from Category.
@@ -72,13 +89,8 @@ namespace PointOfSale
                         btn.Text = itm.Name + "(Out of Stock)";
                     }
                 }
-                SetActiveCategory(Categories[0]);
             }
-        }
-
-        private void btnCategoryGenerated_Click(object sender, EventArgs e)
-        {
-
+            ActiveCategory = AoCategory.Instance.Select("id", ((Button)sender).Tag.ToString());
         }
         private void btnItemGenerated_Click(object sender, EventArgs e)
         {
