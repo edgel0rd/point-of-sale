@@ -24,16 +24,15 @@ namespace PointOfSale.Data.AccessObjects
         private static readonly Lazy<AoCustomer> instance = new Lazy<AoCustomer>(() => new AoCustomer());
         public static AoCustomer Instance { get => instance.Value; }
 
-        public Customer Select(int id)
+        public Customer Select(string identifier, string value)
         {
             Customer customer = null;
             try
             {
                 conn.Open();
-                query = "SELECT * FROM customer WHERE id=@id";
+                query = builder.SelectQuery(table, identifier);
                 cmd = new MySqlCommand(query, conn);
-                cmd.Prepare();
-                cmd.Parameters.AddWithValue("@id", id);
+                builder.PrepareCommand(cmd, identifier, value);
                 rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
@@ -60,14 +59,15 @@ namespace PointOfSale.Data.AccessObjects
             return customer;
         }
 
-        public List<Customer> SelectAll()
+        public List<Customer> SelectAll(string identifier, string value)
         {
             List<Customer> customers = new List<Customer>();
             try
             {
                 conn.Open();
-                query = "SELECT * FROM customer";
+                query = builder.SelectQuery(table, identifier);
                 cmd = new MySqlCommand(query, conn);
+                builder.PrepareCommand(cmd, identifier, value);
                 rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
@@ -125,10 +125,10 @@ namespace PointOfSale.Data.AccessObjects
             try
             {
                 conn.Open();
-                List<string> columns = new List<string> { "name", "points", "phone_number", "write_uid", "id" };
+                List<string> columns = new List<string> { "name", "points", "phone_number", "write_uid" };
                 query = builder.InsertQuery(table, columns);
                 cmd = new MySqlCommand(query, conn);
-                builder.PrepareCommand(cmd, columns, new List<object> { customer.Name, customer.Points, customer.PhoneNumber, customer.WriteUid, customer.Id });
+                builder.PrepareCommand(cmd, columns, new List<object> { customer.Name, customer.Points, customer.PhoneNumber, customer.WriteUid }, customer.Id);
                 result = cmd.ExecuteNonQuery();
             }
             catch (MySqlException ex)
@@ -143,15 +143,16 @@ namespace PointOfSale.Data.AccessObjects
 
         }
 
-        public int Delete(int id)
+        public int Delete(string identifier, string value)
         {
             int result = 0;
             try
             {
                 conn.Open();
-                query = builder.DeleteQuery(table, "id");
+                query = builder.DeleteQuery(table, identifier);
                 cmd = new MySqlCommand(query, conn);
-                builder.PrepareCommand(cmd, "id", id.ToString());
+                builder.PrepareCommand(cmd, identifier, value);
+                result = cmd.ExecuteNonQuery();
             }
             catch (MySqlException ex)
             {

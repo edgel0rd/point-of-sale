@@ -10,10 +10,10 @@ namespace PointOfSale.Data
     public interface IEmployeeRepository
     {
         Employee Select(string identifier, string value);
-        List<Employee> SelectAll();
+        List<Employee> SelectAll(string identifier, string value);
         int Insert(Employee employee);
         int Update(Employee employee);
-        int Delete(int id);
+        int Delete(string identifier, string value);
 
     }
 }

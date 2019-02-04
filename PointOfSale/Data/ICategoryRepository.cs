@@ -9,10 +9,10 @@ namespace PointOfSale.Data
 {
     public interface ICategoryRepository
     {
-        Category Select(int  id);
-        List<Category> SelectAll();
+        Category Select(string identifier, string value);
+        List<Category> SelectAll(string identifier, string value);
         int Insert(Category category);
         int Update(Category category);
-        int Delete(int id);
+        int Delete(string identifier, string value);
     }
 }

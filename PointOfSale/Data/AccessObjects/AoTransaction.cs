@@ -26,15 +26,15 @@ namespace PointOfSale.Data.AccessObjects
 
         public static AoTransaction Instance { get => instance.Value; }
 
-        public Transaction Select(int id)
+        public Transaction Select(string identifier, string value)
         {
             Transaction result = null;
             try
             {
                 conn.Open();
-                query = builder.SelectQuery(table, "id");
+                query = builder.SelectQuery(table, identifier);
                 cmd = new MySqlCommand(query, conn);
-                builder.PrepareCommand(cmd, "id", id.ToString());
+                builder.PrepareCommand(cmd, identifier, value);
                 rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
@@ -61,14 +61,15 @@ namespace PointOfSale.Data.AccessObjects
             return result;
         }
 
-        public List<Transaction> SelectAll()
+        public List<Transaction> SelectAll(string identifier, string value)
         {
             List<Transaction> result = new List<Transaction>();
             try
             {
                 conn.Open();
-                query = $"SELECT * FROM {table}";
+                query = builder.SelectQuery(table, identifier);
                 cmd = new MySqlCommand(query, conn);
+                builder.PrepareCommand(cmd, identifier, value);
                 rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
@@ -141,6 +142,51 @@ namespace PointOfSale.Data.AccessObjects
                 builder.PrepareCommand(cmd, columns, new List<object>() { transaction.CustomerId, transaction.EmployeeId, transaction.Condition, transaction.CreateUid });
                 cmd.ExecuteNonQuery();
                 result = (int)cmd.LastInsertedId;
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return result;
+        }
+
+        public int Update(Transaction transaction)
+        {
+            int result = 0;
+            try
+            {
+                conn.Open();
+                List<string> columns = new List<string>() { "customer_id", "employee_id", "condition", "write_uid" };
+                query = builder.UpdateQuery(table, columns);
+                cmd = new MySqlCommand(query, conn);
+                builder.PrepareCommand(cmd, columns, new List<object>() { transaction.CustomerId, transaction.EmployeeId, transaction.Condition, transaction.WriteUid }, transaction.Id);
+                result = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return result;
+        }
+
+        public int Delete(string identifier, string value)
+        {
+            int result = 0;
+            try
+            {
+                conn.Open();
+                query = builder.DeleteQuery(table, identifier);
+                cmd = new MySqlCommand(query, conn);
+                builder.PrepareCommand(cmd, identifier, value);
+                result = cmd.ExecuteNonQuery();
             }
             catch (MySqlException ex)
             {

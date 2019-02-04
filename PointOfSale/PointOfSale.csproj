@@ -52,9 +52,8 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
-    <Reference Include="edgycontrols, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\edgycontrols\edgycontrols\bin\Debug\edgycontrols.dll</HintPath>
+    <Reference Include="edgycontrols">
+      <HintPath>..\..\edgy-controls\edgycontrols\bin\Debug\edgycontrols.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=6.10.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -83,11 +82,12 @@
     <Compile Include="Data\AccessObjects\AoEmployee.cs" />
     <Compile Include="Data\AccessObjects\AoItem.cs" />
     <Compile Include="Data\AccessObjects\AoTransaction.cs" />
-    <Compile Include="Data\DataManager.cs" />
+    <Compile Include="Data\AccessObjects\AoTransactionLine.cs" />
     <Compile Include="Data\ICategoryRepository.cs" />
     <Compile Include="Data\ICustomerRepository.cs" />
     <Compile Include="Data\IEmployeeRepository.cs" />
     <Compile Include="Data\IItemRepository.cs" />
+    <Compile Include="Data\ITransactionLineRepository.cs" />
     <Compile Include="Data\ITransactionRepository.cs" />
     <Compile Include="Environment.cs" />
     <Compile Include="FrmCashier.cs">
@@ -108,7 +108,7 @@
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\TransactionLines.cs" />
+    <Compile Include="Models\TransactionLine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmCashier.resx">

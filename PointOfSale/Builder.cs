@@ -57,14 +57,19 @@ namespace PointOfSale
             return $"SELECT * FROM `{table}` WHERE `{identifier}`=@{identifier}";
         }
 
-        public void PrepareCommand(MySqlCommand cmd,List<string> columns,List<object> values)
+        public void PrepareCommand(MySqlCommand cmd,List<string> columns,List<object> values, object col_id = null)
         {
             cmd.Prepare();
             foreach(string col in columns)
             {
                 cmd.Parameters.AddWithValue($"@{col}", values[columns.IndexOf(col)].ToString());
             }
+            if (col_id != null)
+            {
+                cmd.Parameters.AddWithValue("@id", col_id.ToString());
+            }
         }
+
         public void PrepareCommand(MySqlCommand cmd, string col, string value)
         {
             cmd.Prepare();

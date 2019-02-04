@@ -64,14 +64,15 @@ namespace PointOfSale.Data.AccessObjects
             return result;
         }
 
-        public List<Employee> SelectAll()
+        public List<Employee> SelectAll(string identifier, string value)
         {
             List<Employee> result = new List<Employee>();
             try
             {
                 conn.Open();
-                query = $"SELECT * FROM {table}";
+                query = builder.SelectQuery(table, identifier);
                 cmd = new MySqlCommand(query, conn);
+                builder.PrepareCommand(cmd, identifier, value);
                 rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
@@ -130,10 +131,10 @@ namespace PointOfSale.Data.AccessObjects
             try
             {
                 conn.Open();
-                List<string> columns = new List<string> { "name", "role", "email", "password", "status", "write_uid", "id" };
+                List<string> columns = new List<string> { "name", "role", "email", "password", "status", "write_uid" };
                 query = builder.UpdateQuery(table, columns);
                 cmd = new MySqlCommand(query, conn);
-                builder.PrepareCommand(cmd, columns, new List<object> { employee.Name, employee.Role, employee.Email, employee.Password, employee.Status, employee.WriteUid, employee.Id });
+                builder.PrepareCommand(cmd, columns, new List<object> { employee.Name, employee.Role, employee.Email, employee.Password, employee.Status, employee.WriteUid, employee.Id }, employee.Id);
                 result = cmd.ExecuteNonQuery();
             }
             catch (MySqlException ex)

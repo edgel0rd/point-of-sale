@@ -9,9 +9,11 @@ namespace PointOfSale.Data
 {
     public interface ITransactionRepository
     {
-        Transaction Select(int id);
-        List<Transaction> SelectAll();
+        Transaction Select(string identifier, string value);
+        List<Transaction> SelectAll(string identifier, string value);
         List<Transaction> SelectToday();
         int Insert(Transaction transaction);
+        int Update(Transaction transaction);
+        int Delete(string identifier, string value);
     }
 }

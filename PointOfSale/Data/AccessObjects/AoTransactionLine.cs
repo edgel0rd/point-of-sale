@@ -3,67 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PointOfSale.Models;
 using MySql.Data.MySqlClient;
 using PointOfSale.BaseModels;
 using PointOfSale.Models;
 
 namespace PointOfSale.Data.AccessObjects
 {
-    public sealed class AoItem : IItemRepository
+    public sealed class AoTransactionLine : ITransactionLineRepository
     {
         private Builder builder = Builder.Instance;
         private MySqlConnection conn;
         private MySqlCommand cmd;
         private MySqlDataReader rdr;
         private String query;
-        private const string table = "item";
-        private AoItem()
-        {
+        private const string table = "transaction_lines";
 
+        private AoTransactionLine()
+        {
+            conn = new MySqlConnection(Server.Instance.GetConnectionString());
         }
 
-        private static readonly Lazy<AoItem> instance = new Lazy<AoItem>(() => new AoItem());
-        public static AoItem Instance { get => instance.Value; }
+        private static readonly Lazy<AoTransactionLine> instance = new Lazy<AoTransactionLine>(() => new AoTransactionLine());
 
-        public Item Select(int id)
-        {
-            Item result = null;
-            try
-            {
-                conn.Open();
-                query = builder.SelectQuery(table, "id");
-                cmd = new MySqlCommand(query, conn);
-                builder.PrepareCommand(cmd, "id", id.ToString());
-                rdr = cmd.ExecuteReader();
-                while (rdr.Read())
-                {
-                    result = new Item(
-                            rdr.GetInt32(0),
-                            rdr.GetString(1),
-                            rdr.GetInt32(2),
-                            rdr.GetInt32(3),
-                            rdr.GetDouble(4),
-                            rdr.IsDBNull(5) ? 0 : rdr.GetInt32(5),
-                            rdr.GetDateTime(6),
-                            rdr.IsDBNull(7) ? 0 : rdr.GetInt32(7),
-                            rdr.GetDateTime(8)
-                            );
-                }
-            }
-            catch (MySqlException ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            finally
-            {
-                conn.Close();
-            }
-            return result;
-        }
+        public static AoTransactionLine Instance { get => instance.Value; }
 
-        public List<Item> SelectAll(string identifier, string value)
+        public TransactionLine Select(string identifier, string value)
         {
-            List<Item> result = new List<Item>();
+            TransactionLine result = null;
             try
             {
                 conn.Open();
@@ -73,17 +40,51 @@ namespace PointOfSale.Data.AccessObjects
                 rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    result.Add(new Item(
-                            rdr.GetInt32(0),
-                            rdr.GetString(1),
-                            rdr.GetInt32(2),
-                            rdr.GetInt32(3),
-                            rdr.GetDouble(4),
-                            rdr.IsDBNull(5) ? 0 : rdr.GetInt32(5),
-                            rdr.GetDateTime(6),
-                            rdr.IsDBNull(7) ? 0 : rdr.GetInt32(7),
-                            rdr.GetDateTime(8)
-                        ));
+                    result = new TransactionLine(
+                        rdr.GetInt32(0), 
+                        rdr.GetInt32(1),
+                        rdr.GetInt32(2), 
+                        rdr.GetDouble(3), 
+                        rdr.GetInt32(4), 
+                        rdr.GetInt32(5), 
+                        rdr.GetDateTime(6), 
+                        rdr.GetInt32(7), 
+                        rdr.GetDateTime(8)
+                        );
+                }
+            }catch(MySqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return result;
+        }
+
+        public List<TransactionLine> SelectAll(string identifier, string value)
+        {
+            List<TransactionLine> result = new List<TransactionLine>();
+            try
+            {
+                conn.Open();
+                query = builder.SelectQuery(identifier, value);
+                cmd = new MySqlCommand(query, conn);
+                builder.PrepareCommand(cmd, identifier, value);
+                rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    result.Add(new TransactionLine(
+                        rdr.GetInt32(0),
+                        rdr.GetInt32(1), 
+                        rdr.GetInt32(2),
+                        rdr.GetDouble(3), 
+                        rdr.GetInt32(4), 
+                        rdr.GetInt32(5),
+                        rdr.GetDateTime(6), 
+                        rdr.GetInt32(7),
+                        rdr.GetDateTime(8)));
                 }
             }
             catch (MySqlException ex)
@@ -97,16 +98,16 @@ namespace PointOfSale.Data.AccessObjects
             return result;
         }
 
-        public int Insert(Item item)
+        public int Insert(TransactionLine line)
         {
             int result = 0;
             try
             {
                 conn.Open();
-                List<string> columns = new List<string>() { "name", "category_id", "stocks", "price", "create_uid", "id" };
+                List<string> columns = new List<string>() { "transaction_id", "item_id", "current_price", "quantity", "create_uid" };
                 query = builder.InsertQuery(table, columns);
                 cmd = new MySqlCommand(query, conn);
-                builder.PrepareCommand(cmd, columns, new List<object> { item.Name, item.CategoryId, item.Stocks, item.Price, item.CreateUid, item.Id });
+                builder.PrepareCommand(cmd, columns, new List<object>() { line.TransactionId, line.ItemId, line.CurrentPrice, line.Quantity, line.CreateUid });
                 cmd.ExecuteNonQuery();
                 result = (int)cmd.LastInsertedId;
             }
@@ -121,16 +122,16 @@ namespace PointOfSale.Data.AccessObjects
             return result;
         }
 
-        public int Update(Item item)
+        public int Update(TransactionLine line)
         {
             int result = 0;
             try
             {
                 conn.Open();
-                List<string> columns = new List<string>() { "name", "category_id", "stocks", "price", "write_uid" };
+                List<string> columns = new List<string>() { "transaction_id", "item_id", "current_price", "quantity", "write_uid" };
                 query = builder.UpdateQuery(table, columns);
                 cmd = new MySqlCommand(query, conn);
-                builder.PrepareCommand(cmd, columns, new List<object> { item.Name, item.CategoryId, item.Stocks, item.Price, item.WriteUid }, item.Id);
+                builder.PrepareCommand(cmd, columns, new List<object>() { line.TransactionId, line.ItemId, line.CurrentPrice, line.Quantity, line.WriteUid }, line.Id);
                 result = cmd.ExecuteNonQuery();
             }
             catch (MySqlException ex)
@@ -144,15 +145,15 @@ namespace PointOfSale.Data.AccessObjects
             return result;
         }
 
-        public int Delete(int id)
+        public int Delete(string identifier, string value)
         {
             int result = 0;
             try
             {
                 conn.Open();
-                query = builder.DeleteQuery(table, "id");
+                query = builder.DeleteQuery(table, identifier);
                 cmd = new MySqlCommand(query, conn);
-                builder.PrepareCommand(cmd, "id", id.ToString());
+                builder.PrepareCommand(cmd, identifier, value);
                 result = cmd.ExecuteNonQuery();
             }
             catch (MySqlException ex)

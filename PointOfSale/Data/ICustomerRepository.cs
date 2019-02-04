@@ -9,10 +9,10 @@ namespace PointOfSale.Data
 {
     public interface ICustomerRepository
     {
-        Customer Select(int id);
-        List<Customer> SelectAll();
+        Customer Select(string identifier, string value);
+        List<Customer> SelectAll(string identifier, string value);
         int Insert(Customer customer);
         int Update(Customer customer);
-        int Delete(int id);
+        int Delete(string identifier, string value);
     }
 }

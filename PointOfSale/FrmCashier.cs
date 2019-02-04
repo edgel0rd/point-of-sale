@@ -17,6 +17,8 @@ namespace PointOfSale
     {
         private Employee Employee;
         private FrmLogin FrmLogin;
+        private List<Category> Categories;
+        private Category ActiveCategory;
         public FrmCashier(Employee employee, FrmLogin form)
         {
             InitializeComponent();
@@ -26,14 +28,15 @@ namespace PointOfSale
 
         private void FrmCashier_Load(object sender, EventArgs e)
         {
-            BindUI();
-        }
-
-        private void BindUI()
-        {
             lblEmployeeName.Text = Employee.Name;
             lblEmployeeRole.Text = Employee.Role;
-        }
+            Categories = AoCategory.Instance.SelectAll();
+            foreach(Category category in Categories)
+            {
+                
+            }
+            SetActiveCategory(Categories[0]);
+        }        
 
         private void TmrClock_Tick(object sender, EventArgs e)
         {
@@ -42,8 +45,10 @@ namespace PointOfSale
 
         private void LnkLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Close();
             FrmLogin.Show();
+            Close();
         }
+
+        private void SetActiveCategory
     }
 }

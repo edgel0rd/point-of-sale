@@ -11,10 +11,12 @@ namespace PointOfSale.Data.AccessObjects
 {
     public sealed class AoCategory : ICategoryRepository
     {
+        private Builder builder = Builder.Instance;
         private MySqlConnection conn;
         private MySqlCommand cmd;
         private MySqlDataReader rdr;
         private String query;
+        private const string table = "category";
         private AoCategory()
         {
             conn = new MySqlConnection(Server.Instance.GetConnectionString());
@@ -22,16 +24,15 @@ namespace PointOfSale.Data.AccessObjects
         private static readonly Lazy<AoCategory> instance = new Lazy<AoCategory>(() => new AoCategory());
         public static AoCategory Instance { get => instance.Value; }
         
-        public int Delete(int id)
+        public int Delete(string identifier, string value)
         {
             int result = 0;
             try
             {
                 conn.Open();
-                query = "DELETE FROM category WHERE id=@id";
+                query = builder.DeleteQuery(table, identifier);
                 cmd = new MySqlCommand(query, conn);
-                cmd.Prepare();
-                cmd.Parameters.AddWithValue("@id", id);
+                builder.PrepareCommand(cmd, identifier, value);
                 result = (int)cmd.ExecuteNonQuery();
             }
             catch (MySqlException ex)
@@ -51,13 +52,10 @@ namespace PointOfSale.Data.AccessObjects
             try
             {
                 conn.Open();
-                query = "INSERT INTO category(name,description,create_uid,write_uid) VALUES(@name,@desc,@cuid,@wuid)";
+                List<string> columns = new List<string>() { "name", "description", "create_uid" };
+                query = builder.InsertQuery(table, columns);
                 cmd = new MySqlCommand(query, conn);
-                cmd.Prepare();
-                cmd.Parameters.AddWithValue("@name", category.Id);
-                cmd.Parameters.AddWithValue("@desc", category.Description);
-                cmd.Parameters.AddWithValue("@cuid", category.CreateUid);
-                cmd.Parameters.AddWithValue("@wuid", category.WriteUid);
+                builder.PrepareCommand(cmd, columns, new List<object> { category.Name, category.Description, category.CreateUid });
                 result = (int)cmd.ExecuteNonQuery();
             }catch (MySqlException ex)
             {
@@ -70,20 +68,19 @@ namespace PointOfSale.Data.AccessObjects
             return result;
         }
 
-        public Category Select(int id)
+        public Category Select(string identifier, string value)
         {
-            Category category = null;
+            Category result = null;
             try
             {
                 conn.Open();
-                query = "SELECT * FROM category WHERE id=@id";
+                query = builder.SelectQuery(table, identifier);
                 cmd = new MySqlCommand(query, conn);
-                cmd.Prepare();
-                cmd.Parameters.AddWithValue("@id", id);
+                builder.PrepareCommand(cmd, identifier, value);
                 rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    category = new Category(
+                    result = new Category(
                         rdr.GetInt32(0),
                         rdr.GetString(1),
                         rdr.GetString(2),
@@ -102,21 +99,22 @@ namespace PointOfSale.Data.AccessObjects
             {
                 conn.Close();
             }
-            return category;
+            return result;
         }
 
-        public List<Category> SelectAll()
+        public List<Category> SelectAll(string identifier, string value)
         {
-            List<Category> categories = new List<Category>();
+            List<Category> result = new List<Category>();
             try
             {
                 conn.Open();
-                query = "SELECT * FROM category";
+                query = builder.SelectQuery(table, identifier);
                 cmd = new MySqlCommand(query, conn);
+                builder.PrepareCommand(cmd, identifier, value);
                 rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    categories.Add(new Category(
+                    result.Add(new Category(
                         rdr.GetInt32(0),
                         rdr.GetString(1),
                         rdr.GetString(2),
@@ -135,12 +133,31 @@ namespace PointOfSale.Data.AccessObjects
             {
                 conn.Close();
             }
-            return categories;
+            return result;
         }
 
         public int Update(Category category)
         {
-            throw new NotImplementedException();
+            int result = 0;
+            try
+            {
+                conn.Open();
+                List<string> columns = new List<string>() { "name", "description", "write_uid" };
+                query = builder.UpdateQuery(table, columns);
+                cmd = new MySqlCommand(query, conn);
+                builder.PrepareCommand(cmd, columns, new List<object>() { category.Name, category.Description, category.WriteUid }, category.Id);
+                result = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return result;
         }
+        
     }
 }

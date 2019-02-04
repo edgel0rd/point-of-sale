@@ -7,14 +7,14 @@ using PointOfSale.BaseModels;
 
 namespace PointOfSale.Models
 {
-    public class TransactionLines : BaseModel
+    public class TransactionLine : BaseModel
     {
         public int TransactionId { get; set; }
         public int ItemId { get; set; }
         public double CurrentPrice { get; set; }
         public int Quantity { get; set; }
 
-        public TransactionLines(int id, int transactionId, int itemId, double currentPrice, int quantity, int createUid, DateTime createDate, int writeUid, DateTime writeDate) : base(id,createDate,createUid,writeDate,writeUid)
+        public TransactionLine(int id, int transactionId, int itemId, double currentPrice, int quantity, int createUid, DateTime createDate, int writeUid, DateTime writeDate) : base(id,createDate,createUid,writeDate,writeUid)
         {
             TransactionId = transactionId;
             ItemId = itemId;
@@ -22,7 +22,7 @@ namespace PointOfSale.Models
             Quantity = quantity;
         }
 
-        public TransactionLines(int transactionId, int itemId, double currentPrice, int quantity, int createUid, int writeUid) : base(createUid, writeUid)
+        public TransactionLine(int transactionId, int itemId, double currentPrice, int quantity, int createUid, int writeUid) : base(createUid, writeUid)
         {
             TransactionId = transactionId;
             ItemId = itemId;
