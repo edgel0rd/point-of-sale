@@ -19,7 +19,7 @@ namespace PointOfSale.Data.AccessObjects
         private const string table = "item";
         private AoItem()
         {
-
+            conn = new MySqlConnection(Server.Instance.GetConnectionString());
         }
 
         private static readonly Lazy<AoItem> instance = new Lazy<AoItem>(() => new AoItem());

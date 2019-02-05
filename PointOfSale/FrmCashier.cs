@@ -19,7 +19,7 @@ namespace PointOfSale
         private FrmLogin FrmLogin;
         private List<Category> Categories;
         private Category ActiveCategory;
-        private List<Button> CategoryButtons;
+        private List<Button> CategoryButtons = new List<Button>();
         private Transaction ActiveTransaction;
         public FrmCashier(Employee employee, FrmLogin form)
         {

@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using PointOfSale.Models;
 using MySql.Data.MySqlClient;
 using PointOfSale.BaseModels;
-using PointOfSale.Models;
 
 namespace PointOfSale.Data.AccessObjects
 {

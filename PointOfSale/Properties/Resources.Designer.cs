@@ -19,7 +19,7 @@ namespace PointOfSale.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -93,9 +93,59 @@ namespace PointOfSale.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_account_outline_blue_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_account_outline_blue_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_account_outline_white_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_account_outline_white_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_backburger_white_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_backburger_white_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_burger_menu_blue_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_burger_menu_blue_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_cancel_white_24dp {
             get {
                 object obj = ResourceManager.GetObject("ic_cancel_white_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_cash_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_cash_black_24dp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,6 +183,46 @@ namespace PointOfSale.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_dashboard_outline_blue_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_dashboard_outline_blue_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_dashboard_outline_white_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_dashboard_outline_white_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_database_blue_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_database_blue_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_database_white_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_database_white_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_face_agent_white_24dp {
             get {
                 object obj = ResourceManager.GetObject("ic_face_agent_white_24dp", resourceCulture);
@@ -146,6 +236,26 @@ namespace PointOfSale.Properties {
         internal static System.Drawing.Bitmap ic_face_black_24dp {
             get {
                 object obj = ResourceManager.GetObject("ic_face_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_manager_blue_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_manager_blue_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_manager_white_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_manager_white_24dp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +283,39 @@ namespace PointOfSale.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_philippine_peso_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_philippine_peso_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_receipt_white_24dp {
             get {
                 object obj = ResourceManager.GetObject("ic_receipt_white_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_shield_account_outline_blue_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_shield_account_outline_blue_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_shield_account_outline_white_24dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_shield_account_outline_white_24dp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

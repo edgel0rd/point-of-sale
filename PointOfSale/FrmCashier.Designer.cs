@@ -41,6 +41,9 @@
             this.flpItems = new System.Windows.Forms.FlowLayoutPanel();
             this.flpCategories = new System.Windows.Forms.FlowLayoutPanel();
             this.btnTemplate = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pnlReceipt = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.DgvReceipt = new System.Windows.Forms.DataGridView();
@@ -59,9 +62,6 @@
             this.btnVoid = new System.Windows.Forms.Button();
             this.btnPay = new System.Windows.Forms.Button();
             this.tmrClock = new System.Windows.Forms.Timer(this.components);
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -71,6 +71,8 @@
             this.panel2.SuspendLayout();
             this.pnlItems.SuspendLayout();
             this.flpCategories.SuspendLayout();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pnlReceipt.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvReceipt)).BeginInit();
@@ -80,8 +82,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.flowLayoutPanel5.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -303,6 +303,41 @@
             this.btnTemplate.TabStop = false;
             this.btnTemplate.Text = "test";
             this.btnTemplate.UseVisualStyleBackColor = false;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.label10);
+            this.panel7.Controls.Add(this.pictureBox3);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(25, 8);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(489, 25);
+            this.panel7.TabIndex = 210;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label10.Location = new System.Drawing.Point(24, 0);
+            this.label10.Name = "label10";
+            this.label10.Padding = new System.Windows.Forms.Padding(4);
+            this.label10.Size = new System.Drawing.Size(77, 25);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Category:";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.BackgroundImage = global::PointOfSale.Properties.Resources.ic_category_black_24dp;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(24, 25);
+            this.pictureBox3.TabIndex = 210;
+            this.pictureBox3.TabStop = false;
             // 
             // pnlReceipt
             // 
@@ -563,41 +598,6 @@
             this.tmrClock.Interval = 1000;
             this.tmrClock.Tick += new System.EventHandler(this.TmrClock_Tick);
             // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.label10);
-            this.panel7.Controls.Add(this.pictureBox3);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(25, 8);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(489, 25);
-            this.panel7.TabIndex = 210;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label10.Location = new System.Drawing.Point(24, 0);
-            this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(4);
-            this.label10.Size = new System.Drawing.Size(77, 25);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Category:";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.BackgroundImage = global::PointOfSale.Properties.Resources.ic_category_black_24dp;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(24, 25);
-            this.pictureBox3.TabIndex = 210;
-            this.pictureBox3.TabStop = false;
-            // 
             // FrmCashier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -626,6 +626,9 @@
             this.panel2.ResumeLayout(false);
             this.pnlItems.ResumeLayout(false);
             this.flpCategories.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnlReceipt.ResumeLayout(false);
             this.pnlReceipt.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -640,9 +643,6 @@
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel5.PerformLayout();
             this.panel5.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
