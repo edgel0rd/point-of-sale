@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlTitleBar = new System.Windows.Forms.Panel();
             this.pnlSideBar = new System.Windows.Forms.Panel();
             this.pnlContainer = new System.Windows.Forms.Panel();
@@ -42,6 +42,7 @@
             this.menuItemSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemLogout = new System.Windows.Forms.ToolStripMenuItem();
             this.btnOptions = new System.Windows.Forms.Button();
+            this.btnTitle = new System.Windows.Forms.Button();
             this.eTabControl1 = new PointOfSale.ETabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.pnlDboardRight = new System.Windows.Forms.Panel();
@@ -72,10 +73,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnExtendMenu = new PointOfSale.EFlatButton();
-            this.eFlatButton4 = new PointOfSale.EFlatButton();
-            this.eFlatButton3 = new PointOfSale.EFlatButton();
-            this.eFlatButton1 = new PointOfSale.EFlatButton();
-            this.eFlatButton2 = new PointOfSale.EFlatButton();
+            this.btnAdmins = new PointOfSale.EFlatButton();
+            this.btnManagers = new PointOfSale.EFlatButton();
+            this.btnCustomers = new PointOfSale.EFlatButton();
+            this.btnDashboard = new PointOfSale.EFlatButton();
             this.pnlTitleBar.SuspendLayout();
             this.pnlSideBar.SuspendLayout();
             this.pnlContainer.SuspendLayout();
@@ -100,22 +101,24 @@
             // pnlTitleBar
             // 
             this.pnlTitleBar.BackColor = System.Drawing.Color.White;
-            this.pnlTitleBar.Controls.Add(this.btnExtendMenu);
+            this.pnlTitleBar.Controls.Add(this.btnTitle);
             this.pnlTitleBar.Controls.Add(this.btnOptions);
+            this.pnlTitleBar.Controls.Add(this.btnExtendMenu);
             this.pnlTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitleBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pnlTitleBar.Location = new System.Drawing.Point(48, 0);
             this.pnlTitleBar.Name = "pnlTitleBar";
             this.pnlTitleBar.Size = new System.Drawing.Size(651, 48);
             this.pnlTitleBar.TabIndex = 0;
+            this.pnlTitleBar.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTitleBar_Paint);
             // 
             // pnlSideBar
             // 
             this.pnlSideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
-            this.pnlSideBar.Controls.Add(this.eFlatButton4);
-            this.pnlSideBar.Controls.Add(this.eFlatButton3);
-            this.pnlSideBar.Controls.Add(this.eFlatButton1);
-            this.pnlSideBar.Controls.Add(this.eFlatButton2);
+            this.pnlSideBar.Controls.Add(this.btnAdmins);
+            this.pnlSideBar.Controls.Add(this.btnManagers);
+            this.pnlSideBar.Controls.Add(this.btnCustomers);
+            this.pnlSideBar.Controls.Add(this.btnDashboard);
             this.pnlSideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSideBar.Location = new System.Drawing.Point(0, 0);
             this.pnlSideBar.Name = "pnlSideBar";
@@ -181,6 +184,27 @@
             this.btnOptions.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnOptions.UseVisualStyleBackColor = false;
             this.btnOptions.Click += new System.EventHandler(this.BtnOptions_Click);
+            // 
+            // btnTitle
+            // 
+            this.btnTitle.AutoSize = true;
+            this.btnTitle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnTitle.BackColor = System.Drawing.Color.White;
+            this.btnTitle.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnTitle.FlatAppearance.BorderSize = 0;
+            this.btnTitle.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.btnTitle.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnTitle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTitle.Location = new System.Drawing.Point(48, 0);
+            this.btnTitle.Name = "btnTitle";
+            this.btnTitle.Size = new System.Drawing.Size(41, 48);
+            this.btnTitle.TabIndex = 44;
+            this.btnTitle.Text = "test";
+            this.btnTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTitle.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnTitle.UseVisualStyleBackColor = false;
             // 
             // eTabControl1
             // 
@@ -262,14 +286,14 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.ColumnHeadersHeight = 56;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -552,17 +576,17 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(8, 50);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(309, 150);
             this.chart1.TabIndex = 46;
             this.chart1.Text = "chart1";
@@ -629,14 +653,14 @@
             this.dgvTransactions.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTransactions.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvTransactions.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTransactions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTransactions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvTransactions.ColumnHeadersHeight = 56;
             this.dgvTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvTransactions.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -710,93 +734,93 @@
             this.btnExtendMenu.UseVisualStyleBackColor = false;
             this.btnExtendMenu.Click += new System.EventHandler(this.BtnExtendMenu_Click);
             // 
-            // eFlatButton4
+            // btnAdmins
             // 
-            this.eFlatButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
-            this.eFlatButton4.ColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
-            this.eFlatButton4.ColorWorking = System.Drawing.Color.White;
-            this.eFlatButton4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.eFlatButton4.FlatAppearance.BorderSize = 0;
-            this.eFlatButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.eFlatButton4.ForeColor = System.Drawing.Color.White;
-            this.eFlatButton4.Image = global::PointOfSale.Properties.Resources.ic_shield_account_outline_white_24dp;
-            this.eFlatButton4.ImageIdle = global::PointOfSale.Properties.Resources.ic_shield_account_outline_white_24dp;
-            this.eFlatButton4.ImageWorking = global::PointOfSale.Properties.Resources.ic_shield_account_outline_blue_24dp;
-            this.eFlatButton4.Location = new System.Drawing.Point(0, 144);
-            this.eFlatButton4.Name = "eFlatButton4";
-            this.eFlatButton4.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.eFlatButton4.Size = new System.Drawing.Size(48, 48);
-            this.eFlatButton4.TabIndex = 3;
-            this.eFlatButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.eFlatButton4.Title = "Administrators";
-            this.eFlatButton4.UseVisualStyleBackColor = false;
-            this.eFlatButton4.Click += new System.EventHandler(this.MultiClick);
+            this.btnAdmins.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            this.btnAdmins.ColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            this.btnAdmins.ColorWorking = System.Drawing.Color.White;
+            this.btnAdmins.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAdmins.FlatAppearance.BorderSize = 0;
+            this.btnAdmins.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdmins.ForeColor = System.Drawing.Color.White;
+            this.btnAdmins.Image = global::PointOfSale.Properties.Resources.ic_shield_account_outline_white_24dp;
+            this.btnAdmins.ImageIdle = global::PointOfSale.Properties.Resources.ic_shield_account_outline_white_24dp;
+            this.btnAdmins.ImageWorking = global::PointOfSale.Properties.Resources.ic_shield_account_outline_blue_24dp;
+            this.btnAdmins.Location = new System.Drawing.Point(0, 144);
+            this.btnAdmins.Name = "btnAdmins";
+            this.btnAdmins.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.btnAdmins.Size = new System.Drawing.Size(48, 48);
+            this.btnAdmins.TabIndex = 3;
+            this.btnAdmins.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAdmins.Title = "Administrators";
+            this.btnAdmins.UseVisualStyleBackColor = false;
+            this.btnAdmins.Click += new System.EventHandler(this.MultiClick);
             // 
-            // eFlatButton3
+            // btnManagers
             // 
-            this.eFlatButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
-            this.eFlatButton3.ColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
-            this.eFlatButton3.ColorWorking = System.Drawing.Color.White;
-            this.eFlatButton3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.eFlatButton3.FlatAppearance.BorderSize = 0;
-            this.eFlatButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.eFlatButton3.ForeColor = System.Drawing.Color.White;
-            this.eFlatButton3.Image = global::PointOfSale.Properties.Resources.ic_manager_white_24dp;
-            this.eFlatButton3.ImageIdle = global::PointOfSale.Properties.Resources.ic_manager_white_24dp;
-            this.eFlatButton3.ImageWorking = global::PointOfSale.Properties.Resources.ic_manager_blue_24dp;
-            this.eFlatButton3.Location = new System.Drawing.Point(0, 96);
-            this.eFlatButton3.Name = "eFlatButton3";
-            this.eFlatButton3.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.eFlatButton3.Size = new System.Drawing.Size(48, 48);
-            this.eFlatButton3.TabIndex = 2;
-            this.eFlatButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.eFlatButton3.Title = "Managers";
-            this.eFlatButton3.UseVisualStyleBackColor = false;
-            this.eFlatButton3.Click += new System.EventHandler(this.MultiClick);
+            this.btnManagers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            this.btnManagers.ColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            this.btnManagers.ColorWorking = System.Drawing.Color.White;
+            this.btnManagers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnManagers.FlatAppearance.BorderSize = 0;
+            this.btnManagers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManagers.ForeColor = System.Drawing.Color.White;
+            this.btnManagers.Image = global::PointOfSale.Properties.Resources.ic_manager_white_24dp;
+            this.btnManagers.ImageIdle = global::PointOfSale.Properties.Resources.ic_manager_white_24dp;
+            this.btnManagers.ImageWorking = global::PointOfSale.Properties.Resources.ic_manager_blue_24dp;
+            this.btnManagers.Location = new System.Drawing.Point(0, 96);
+            this.btnManagers.Name = "btnManagers";
+            this.btnManagers.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.btnManagers.Size = new System.Drawing.Size(48, 48);
+            this.btnManagers.TabIndex = 2;
+            this.btnManagers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnManagers.Title = "Managers";
+            this.btnManagers.UseVisualStyleBackColor = false;
+            this.btnManagers.Click += new System.EventHandler(this.MultiClick);
             // 
-            // eFlatButton1
+            // btnCustomers
             // 
-            this.eFlatButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
-            this.eFlatButton1.ColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
-            this.eFlatButton1.ColorWorking = System.Drawing.Color.White;
-            this.eFlatButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.eFlatButton1.FlatAppearance.BorderSize = 0;
-            this.eFlatButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.eFlatButton1.ForeColor = System.Drawing.Color.White;
-            this.eFlatButton1.Image = global::PointOfSale.Properties.Resources.ic_account_outline_white_24dp;
-            this.eFlatButton1.ImageIdle = global::PointOfSale.Properties.Resources.ic_account_outline_white_24dp;
-            this.eFlatButton1.ImageWorking = global::PointOfSale.Properties.Resources.ic_account_outline_blue_24dp;
-            this.eFlatButton1.Location = new System.Drawing.Point(0, 48);
-            this.eFlatButton1.Name = "eFlatButton1";
-            this.eFlatButton1.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.eFlatButton1.Size = new System.Drawing.Size(48, 48);
-            this.eFlatButton1.TabIndex = 0;
-            this.eFlatButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.eFlatButton1.Title = "Customers";
-            this.eFlatButton1.UseVisualStyleBackColor = false;
-            this.eFlatButton1.Click += new System.EventHandler(this.MultiClick);
+            this.btnCustomers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            this.btnCustomers.ColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            this.btnCustomers.ColorWorking = System.Drawing.Color.White;
+            this.btnCustomers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCustomers.FlatAppearance.BorderSize = 0;
+            this.btnCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCustomers.ForeColor = System.Drawing.Color.White;
+            this.btnCustomers.Image = global::PointOfSale.Properties.Resources.ic_account_outline_white_24dp;
+            this.btnCustomers.ImageIdle = global::PointOfSale.Properties.Resources.ic_account_outline_white_24dp;
+            this.btnCustomers.ImageWorking = global::PointOfSale.Properties.Resources.ic_account_outline_blue_24dp;
+            this.btnCustomers.Location = new System.Drawing.Point(0, 48);
+            this.btnCustomers.Name = "btnCustomers";
+            this.btnCustomers.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.btnCustomers.Size = new System.Drawing.Size(48, 48);
+            this.btnCustomers.TabIndex = 0;
+            this.btnCustomers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCustomers.Title = "Customers";
+            this.btnCustomers.UseVisualStyleBackColor = false;
+            this.btnCustomers.Click += new System.EventHandler(this.MultiClick);
             // 
-            // eFlatButton2
+            // btnDashboard
             // 
-            this.eFlatButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
-            this.eFlatButton2.ColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
-            this.eFlatButton2.ColorWorking = System.Drawing.Color.White;
-            this.eFlatButton2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.eFlatButton2.FlatAppearance.BorderSize = 0;
-            this.eFlatButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.eFlatButton2.ForeColor = System.Drawing.Color.White;
-            this.eFlatButton2.Image = global::PointOfSale.Properties.Resources.ic_dashboard_outline_white_24dp;
-            this.eFlatButton2.ImageIdle = global::PointOfSale.Properties.Resources.ic_dashboard_outline_white_24dp;
-            this.eFlatButton2.ImageWorking = global::PointOfSale.Properties.Resources.ic_dashboard_outline_blue_24dp;
-            this.eFlatButton2.Location = new System.Drawing.Point(0, 0);
-            this.eFlatButton2.Name = "eFlatButton2";
-            this.eFlatButton2.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.eFlatButton2.Size = new System.Drawing.Size(48, 48);
-            this.eFlatButton2.TabIndex = 1;
-            this.eFlatButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.eFlatButton2.Title = "Dashboard";
-            this.eFlatButton2.UseVisualStyleBackColor = false;
-            this.eFlatButton2.Click += new System.EventHandler(this.MultiClick);
+            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            this.btnDashboard.ColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            this.btnDashboard.ColorWorking = System.Drawing.Color.White;
+            this.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDashboard.FlatAppearance.BorderSize = 0;
+            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDashboard.ForeColor = System.Drawing.Color.White;
+            this.btnDashboard.Image = global::PointOfSale.Properties.Resources.ic_dashboard_outline_white_24dp;
+            this.btnDashboard.ImageIdle = global::PointOfSale.Properties.Resources.ic_dashboard_outline_white_24dp;
+            this.btnDashboard.ImageWorking = global::PointOfSale.Properties.Resources.ic_dashboard_outline_blue_24dp;
+            this.btnDashboard.Location = new System.Drawing.Point(0, 0);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.btnDashboard.Size = new System.Drawing.Size(48, 48);
+            this.btnDashboard.TabIndex = 1;
+            this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDashboard.Title = "Dashboard";
+            this.btnDashboard.UseVisualStyleBackColor = false;
+            this.btnDashboard.Click += new System.EventHandler(this.MultiClick);
             // 
             // FrmManager
             // 
@@ -852,10 +876,10 @@
         private ETabControl eTabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private EFlatButton eFlatButton1;
-        private EFlatButton eFlatButton4;
-        private EFlatButton eFlatButton3;
-        private EFlatButton eFlatButton2;
+        private EFlatButton btnCustomers;
+        private EFlatButton btnAdmins;
+        private EFlatButton btnManagers;
+        private EFlatButton btnDashboard;
         private System.Windows.Forms.ContextMenuStrip menuOptions;
         private System.Windows.Forms.ToolStripMenuItem menuItemLogs;
         private System.Windows.Forms.ToolStripMenuItem menuItemSettings;
@@ -887,5 +911,6 @@
         private System.Windows.Forms.Button button11;
         internal System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btnTitle;
     }
 }

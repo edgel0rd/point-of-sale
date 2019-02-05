@@ -24,21 +24,24 @@ namespace PointOfSale
         {
             menubuttons = new List<EFlatButton>()
             {
-                eFlatButton1,eFlatButton2,eFlatButton3,eFlatButton4
+                btnCustomers,btnDashboard,btnManagers,btnAdmins
             };
             var series = new Series("Purchases");
             pnlDboardLeftSide.Size = new Size((pnlDboardLeftSide.Parent.Size.Width / 2), pnlDboardLeftSide.Parent.Height);
             pnlInventoryPadding.Size = new Size((pnlInventoryPadding.Parent.Size.Width), 
                 Convert.ToInt32(pnlInventoryPadding.Parent.Size.Height / 1.7));
+            btnDashboard.PerformClick();
         }
         
         
         private void MultiClick(object sender, EventArgs e)
         {
-            foreach(EFlatButton fbtn in pnlSideBar.Controls.OfType<EFlatButton>())
+            EFlatButton triggering_button = (EFlatButton)sender;
+            foreach (EFlatButton fbtn in pnlSideBar.Controls.OfType<EFlatButton>())
             {
-                fbtn.PerformLock((EFlatButton)sender == fbtn);
+                fbtn.PerformLock(triggering_button == fbtn);
             }
+            btnTitle.Text = triggering_button.Title;
         }
 
         private void BtnOptions_Click(object sender, EventArgs e)
@@ -57,11 +60,17 @@ namespace PointOfSale
         private void BtnExtendMenu_Click(object sender, EventArgs e)
         {
             btnExtendMenu.Toggle();
+            pnlSideBar.Size = !btnExtendMenu.IsActivated() ? new Size(pnlSideBar.Width * 3, pnlSideBar.Height) : new Size(pnlSideBar.Width / 3, pnlSideBar.Height);
         }
 
         private void FrmManager_SizeChanged(object sender, EventArgs e)
         {
             pnlDboardLeftSide.Size = new Size((pnlDboardLeftSide.Parent.Size.Width / 2),pnlDboardLeftSide.Parent.Height);
+        }
+
+        private void pnlTitleBar_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
