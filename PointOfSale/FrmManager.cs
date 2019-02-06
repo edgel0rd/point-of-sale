@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using PointOfSale.Models;
 
 namespace PointOfSale
 {
@@ -15,9 +16,14 @@ namespace PointOfSale
     {
 
         private List<EFlatButton> menubuttons;
-        public FrmManager()
+        private Employee emp;
+        private FrmLogin frmLogin;
+        
+        public FrmManager(Employee employee, FrmLogin frm)
         {
             InitializeComponent();
+            emp = employee;
+            frmLogin = frm;
         }
 
         private void FrmManager_Load(object sender, EventArgs e)
@@ -54,7 +60,8 @@ namespace PointOfSale
 
         private void MenuItemLogout_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Close();
+            frmLogin.Show();
         }
 
         private void BtnExtendMenu_Click(object sender, EventArgs e)

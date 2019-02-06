@@ -49,7 +49,15 @@ namespace PointOfSale
             if (error_message.Equals(string.Empty))
             {
                 Hide();
-                new FrmCashier(emp,this).Show();
+                if (emp.Role == Employee.Roles.Cashier)
+                {
+                    new FrmCashier(emp, this).Show();
+                }
+                else
+                {
+                    new FrmManager(emp, this).Show();
+                }
+
                 txtPassword.Text = string.Empty;
             }
             else
