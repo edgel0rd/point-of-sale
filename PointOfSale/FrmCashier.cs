@@ -77,17 +77,13 @@ namespace PointOfSale
                 foreach (Item itm in items)
                 {
                     //Populate Item Flow layout panel with Items from Category.
-                    Button btn = new Button();
-                    btn.Enabled = itm.Stocks > 0;
-                    btn.Click += btnItemGenerated_Click;
-                    if (itm.Stocks > 0)
+                    using(Button btn = new Button())
                     {
-                        btn.Text = itm.Name;
-                    }
-                    else
-                    {
-                        btn.Text = itm.Name + "(Out of Stock)";
-                    }
+                        btn.Enabled = itm.Stocks > 0;
+                        btn.Tag = itm.Id;
+                        btn.Click += btnItemGenerated_Click;
+                        btn.Text = btn.Enabled ? itm.Name : itm.Name + "(Out of Stock)";
+                    } 
                 }
             }
             ActiveCategory = AoCategory.Instance.Select("id", ((Button)sender).Tag.ToString());
