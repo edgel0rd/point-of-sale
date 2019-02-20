@@ -17,7 +17,7 @@ namespace PointOfSale.Models
         }
         public enum Roles
         {
-            Admin,
+            Administrator,
             Manager,
             Cashier
         }

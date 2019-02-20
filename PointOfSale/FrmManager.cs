@@ -48,6 +48,8 @@ namespace PointOfSale
                 fbtn.PerformLock(triggering_button == fbtn);
             }
             btnTitle.Text = triggering_button.Title;
+
+            //eTabControl1.SelectedTab = eTabControl1.TabPages[triggering_button.Tag];
         }
 
         private void BtnOptions_Click(object sender, EventArgs e)

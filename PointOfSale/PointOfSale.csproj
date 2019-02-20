@@ -54,7 +54,7 @@
   <ItemGroup>
     <Reference Include="edgycontrols, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\edgycontrols.dll</HintPath>
+      <HintPath>..\..\edgy-controls\edgycontrols\bin\Debug\edgycontrols.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=6.10.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -118,6 +118,12 @@
     <Compile Include="FrmManager.Designer.cs">
       <DependentUpon>FrmManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmManageUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManageUsers.Designer.cs">
+      <DependentUpon>FrmManageUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Init.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -138,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmManager.resx">
       <DependentUpon>FrmManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManageUsers.resx">
+      <DependentUpon>FrmManageUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
